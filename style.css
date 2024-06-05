@@ -78,10 +78,9 @@
 
 .networks-section{
   grid-area: c;
-  width: 100%;
-  height: 100%;
   border-radius: 5px;
   display: grid;
+  grid-gap: .5rem;
   align-items: center;
   justify-items: center;
   font-family: var(--main-font);
@@ -89,7 +88,8 @@
 .networks-links{
   display: flex;
   width: 100%;
-  height: 60%;
+  height: 100%;
+  margin: 1rem 0;
   border-radius: 5px;
   background-color: var(--container-color);
   color: #fff;
@@ -195,7 +195,7 @@
   text-decoration: none;
   color: #fff;
 }
-.cv-section img{
+.cv-section svg{
   margin: .5rem 0;
   width: 2rem;
   height: 2rem;
