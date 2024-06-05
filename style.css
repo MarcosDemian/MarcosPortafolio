@@ -71,7 +71,7 @@
   background-color: aqua;
   border-radius: 5px;
 }
-.git-icon{
+.git-section svg{
   width: 50%;
   height: 50%;
 }
@@ -98,9 +98,7 @@
   text-decoration: none;
   transition: 1.5s;
 }
-.networks-links img{
-  height: 50%;
-  width: 20%;
+.networks-links svg {
   margin: 0 .5rem;
 }
 .networks-links p{
