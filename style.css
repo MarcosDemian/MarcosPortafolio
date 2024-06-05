@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+  --main-font: 'Quantico', sans-serif;
+  --container-color: #472B66;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0e0914;
+}
+
+.grid-container{
+  display: grid;
+  grid-gap: 1rem;
+  margin: 5rem;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, auto);
+ /*a:sobre mi b:github c:redes d:tecno e:trabajos g:cert h:cv i:reloj*/
+  grid-template-areas: "a a a b b c c c"
+                       "a a a b b c c c"
+                       "a a a e e e e e"
+                       "a a a e e e e e"
+                       "d d d e e e e e"
+                       "g g g h h i i i"
+                       "g g g h h i i i";
+}
+
+.about-section{
+  grid-area: a;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  font-family: var(--main-font);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/cat.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  border-radius: 5px;
+}
+.about-section h1{
+  font-size: 2rem;
+}
+.about-section h1, .about-section p{
+  margin: .5rem;
+}
+.about-section p b{
+  font-size: 1.2rem;
+}
+
+.git-container{
+  grid-area: b;
+  transition: 1.5s;
+}
+.git-section{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+  border-radius: 5px;
+}
+.git-icon{
+  width: 50%;
+  height: 50%;
+}
+
+.networks-section{
+  grid-area: c;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-family: var(--main-font);
+}
+.networks-links{
+  display: flex;
+  width: 100%;
+  height: 60%;
+  border-radius: 5px;
+  background-color: var(--container-color);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 1.5s;
+}
+.networks-links img{
+  height: 50%;
+  width: 20%;
+  margin: 0 .5rem;
+}
+.networks-links p{
+  margin: 0 .5rem;
+}
+
+.tech-section{
+  grid-area: d;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/code-waterfall.gif");
+  border-radius: 5px;
+}
+
+.tech-icons{
+  width: 65%;
+  height: 65%;
+}
+
+.proyects-section{
+  grid-area: e;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(15rem, 1fr));
+  grid-gap:.5rem;
+  font-family: var(--main-font);
+}
+.proyect-card{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.proyect-img{
+  width: 80%;
+  height: 40%;
+  margin-top: 2rem;
+}
+.proyect-card h3{
+  margin: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.ico-container{
+  display: grid;
+  width: 60%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  row-gap: .5rem;
+  justify-items: center;
+  margin-bottom: .5rem;
+}
+.proyect-ico{
+  width: 2rem;
+  height: 2rem;
+}
+
+.div7{
+  grid-area: g;
+  width: 100%;
+  height: 100%;
+  background-color: var(--container-color);
+  border-radius: 5px;
+}
+
+.cv-section{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/memecat.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--main-font);
+  transition: 1.5s;
+}
+.cv-link{
+  grid-area: h;
+  text-decoration: none;
+  color: #fff;
+}
+.cv-section img{
+  margin: .5rem 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.clock-section{
+  grid-area: i;
+  width: 100%;
+  height: 100%;
+  background-color:	var(--container-color);
+  color: #fff;
+  border-radius: 5px;
+  font-family: var(--main-font);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 1.5s;
+}
+
+/*-------------Escalado de container--------------*/
+
+.cv-section:hover, 
+.clock-section:hover, 
+.git-container:hover,
+.networks-links:hover{
+  transform: scale(.9);
+ }
+
+/*------------------------Media query-----------------------*/
+/* Para dispositivos de pantalla extremadamente pequeña (595 px y menos) */
+ /*a:sobre mi b:github c:redes d:tecno e:trabajos g:cert h:cv i:reloj*/
+@media only screen and (max-width: 599px) {
+  .main-container{
+    height: 100%;
+  }
+  .grid-container{
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas: "i i i i i i i i"
+                         "a a a a a a a a"
+                         "a a a a a a a a"
+                         "c c c c c c c c"
+                         "b b b b b b b b"
+                         "d d d d d d d d"
+                         "e e e e e e e e"
+                         "e e e e e e e e"
+                         "g g g g g g g g"
+                         "h h h h h h h h";
+    min-width: 300px;
+  }
+
+  .about-section{
+    background-position: 30%;
+  }
+
+  .tech-section{
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  }
+
+  .proyects-section{
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  }
+
+  .networks-links{
+    flex-direction: column;
+  }
+}
+ 
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+  .main-container{
+    height: 100%;
+  }
+  .grid-container{
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas: "i i i i i i i i"
+                         "a a a a a a a a"
+                         "a a a a a a a a"
+                         "c c c c c c c c"
+                         "b b b b b b b b"
+                         "d d d d d d d d"
+                         "e e e e e e e e"
+                         "e e e e e e e e"
+                         "g g g g h h h h"
+                         "g g g g h h h h";
+  }
+
+  .about-section{
+    background-position: -50%;
+  }
+
+  .proyects-section{
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+ 
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+  .grid-container{
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas: "i i i i i i i i"
+                         "a a a a a a a a"
+                         "a a a a a a a a"
+                         "b b b b c c c c"
+                         "b b b b c c c c"
+                         "d d d d d d d d"
+                         "e e e e e e e e"
+                         "e e e e e e e e"
+                         "g g g g h h h h"
+                         "g g g g h h h h";
+  }
+
+  .about-section{
+    background-position: -50%;
+  }
+}
+ 
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  .grid-container{
+    grid-template-rows: repeat(9, auto);
+    grid-template-areas: "i i i i i i i i"
+                         "a a a a h h h h"
+                         "a a a a h h h h"
+                         "b b b b c c c c"
+                         "b b b b c c c c"
+                         "d d d d d d d d"
+                         "e e e e e e e e"
+                         "e e e e e e e e"
+                         "g g g g g g g g";
+  }
+
+  .cv-section{
+    background-position: 50% 0;
+  }
+}
+ 
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .main-container{
+    height: 100vh;
+  }
+
+  .grid-container{
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas: "a a a b b c c c"
+                         "a a a b b c c c"
+                         "a a a e e e e e"
+                         "a a a e e e e e"
+                         "d d d e e e e e"
+                         "g g g h h i i i"
+                         "g g g h h i i i";
+  }
+
+  .about-section{
+    background-position: 0;
+  }
+
+  .tech-icons {
+    width: 80%;
+    height: 80%;
+  }
+}
