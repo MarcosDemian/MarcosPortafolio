@@ -58,7 +58,6 @@
 
 .git-container{
   grid-area: b;
-  transition: 1.5s;
 }
 .git-section{
   width: 100%;
@@ -94,7 +93,6 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: 1.5s;
 }
 .networks-links svg {
   margin: 0 .5rem;
@@ -184,7 +182,6 @@
   justify-content: center;
   align-items: center;
   font-family: var(--main-font);
-  transition: 1.5s;
 }
 .cv-link{
   grid-area: h;
@@ -210,17 +207,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 1.5s;
 }
-
-/*-------------Escalado de container--------------*/
-
-.cv-section:hover, 
-.clock-section:hover, 
-.git-container:hover,
-.networks-links:hover{
-  transform: scale(.9);
- }
 
 /*------------------------Media query-----------------------*/
 /* Para dispositivos de pantalla extremadamente pequeña (595 px y menos) */
