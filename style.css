@@ -2,7 +2,7 @@
 
 :root{
   --main-font: 'Quantico', sans-serif;
-  --container-color: #472B66;
+  --container-color: #663e93;
 }
 
 *{
@@ -109,7 +109,7 @@
   grid-template-columns: repeat(6, 1fr);
   align-items: center;
   justify-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/code-waterfall.gif);
+  background-image: url(images/code-waterfall.gif);
   border-radius: 5px;
 }
 
