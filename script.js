@@ -38,3 +38,15 @@ document.addEventListener('DOMContentLoaded', () =>{
   })
 
 })
+
+/* Mostrar Diplomas */
+
+function ShowHide () {
+  var container = document.getElementsByClassName("cert_show")[0];
+
+  if (container.style.visibility == "hidden") {
+    container.style.visibility = "visible";
+  }else {
+    container.style.visibility = "hidden";
+  }
+}
