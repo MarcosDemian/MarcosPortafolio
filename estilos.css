@@ -104,6 +104,7 @@ body{
   color: var(--dorado);
   background-color: var(--azul-principal);
   border-radius:0 10px 10px 0;
+  z-index: 10;
 }
 
 .selector_li:hover .icono_titulo{
@@ -115,7 +116,7 @@ body{
   height: 20px;
 }
 
-#sobre_mí{
+#sobre_mi{
   display: grid;
   grid-template-rows: auto auto minmax(20%, 50%);
 }
