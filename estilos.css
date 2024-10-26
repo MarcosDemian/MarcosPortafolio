@@ -79,7 +79,8 @@ body{
   user-select:none;
 }
 .selector_li{
-  margin: 20% 0;
+  position: relative;
+  margin: 35% 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +91,23 @@ body{
   color: #000;
   padding: .5rem;
   border-radius: 4px;
+}
+
+.icono_titulo{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: .5rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: .8rem;
+  color: var(--dorado);
+  background-color: var(--azul-principal);
+  border-radius:0 10px 10px 0;
+}
+
+.selector_li:hover .icono_titulo{
+  opacity: 1;
 }
 
 .iconos{
