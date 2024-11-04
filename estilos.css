@@ -391,3 +391,150 @@ body{
 	width: 100%;
 	border-radius: 2rem;
 }
+
+/* Pantallas de hasta 576px (teléfonos) */
+@media (max-width: 576px) {
+  .contenedor_principal{
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100vh;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .contenido_container{
+    height: 70%;
+    width: 90%;
+    grid-template-columns: none;
+    grid-template-rows: 10% 90%;
+    justify-items: center;
+  }
+
+  /*aside*/
+  .logo_container{
+    width: 100%;
+    height: 30%;
+    border-radius: 0 0 .5em .5rem;
+  }
+
+  .nombre{
+    font-size: 1.5rem;
+  }
+
+  .puesto{
+    font-size: 1rem;
+  }
+  
+  /*navbar*/
+
+  .barra_nav{
+    width: 100%;
+  }
+
+  .selectores{
+    flex-direction: row;
+    width: 90%;
+  }
+
+  .selector_li{
+    margin: 0 5%;
+  }
+  .selector_a{
+    display: flex;
+    align-items: center;
+  }
+
+  .icono_titulo{
+    display: none;
+  }
+
+  /*sliders*/
+
+  .slide{
+    padding: 0 1rem;
+  }
+
+  .slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .texto{
+    text-align: center;
+    font-size: .7rem;
+    padding: .5rem 1rem;
+  }
+
+  .titulos{
+    font-size: 2.5rem;
+  }
+
+  /*sobre mi*/
+  .man_imagen{
+    display: none;
+  }
+
+  .adicional{
+    justify-content: center;
+  }
+
+  .btn_container{
+    align-items: center;
+    width: 100%;
+  }
+
+  .boton{
+    font-size: .7rem;
+    padding: .5rem;
+    margin: .3rem;
+  }
+
+  /*proyectos*/
+  #proyectos{
+    min-height: 300%;
+  }
+
+  .cartas_container{
+    flex-direction: column;
+  }
+
+  /*habilidades*/
+  #habilidades{
+    min-height: 300%;
+    grid-template-rows: 10% 75% 15%;
+  }
+
+  .contenedor_grid{
+    grid-template-columns: none;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: .5rem;
+  }
+
+  /*diplomas*/
+  .carousel-inner{
+    width: 100%;
+  }
+}
+
+/* Pantallas de hasta 768px (tablets en vertical) */
+@media (max-width: 768px) {
+  /* Estilos para tablets */
+}
+
+/* Pantallas de hasta 992px (tablets en horizontal y laptops pequeñas) */
+@media (max-width: 992px) {
+  /* Estilos para dispositivos medianos */
+}
+
+/* Pantallas de hasta 1200px (laptops grandes y pantallas de escritorio) */
+@media (max-width: 1200px) {
+  /* Estilos para pantallas grandes */
+}
+
+/* Pantallas de más de 1200px (monitores grandes) */
+@media (min-width: 1201px) {
+  /* Estilos para pantallas muy grandes */
+}
