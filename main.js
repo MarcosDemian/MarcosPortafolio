@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	
 	const carouselContent = carousel.innerHTML;
-	carousel.innerHTML += carouselContent;
+	if (window.matchMedia('(min-width: 576px)').matches) {
+		carousel.innerHTML += carouselContent;
+	}
+	
 
 	const startScrolling = () => {
 		if (!isHovered && window.matchMedia('(min-width: 576px)').matches) {
