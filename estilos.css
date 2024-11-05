@@ -426,7 +426,6 @@ body{
   }
   
   /*navbar*/
-
   .barra_nav{
     width: 100%;
   }
@@ -497,6 +496,10 @@ body{
 
   .cartas_container{
     flex-direction: column;
+  }
+
+  .carta_proyecto:hover{
+    transform: none;
   }
 
   /*habilidades*/
