@@ -449,7 +449,6 @@ body{
   }
 
   /*sliders*/
-
   .slide{
     padding: 0 1rem;
   }
@@ -463,7 +462,7 @@ body{
 
   .texto{
     text-align: center;
-    font-size: .7rem;
+    font-size: .8rem;
     padding: .5rem 1rem;
   }
 
@@ -486,14 +485,14 @@ body{
   }
 
   .boton{
-    font-size: .7rem;
-    padding: .5rem;
+    font-size: .9rem;
+    padding: .7rem;
     margin: .3rem;
   }
 
   /*proyectos*/
   #proyectos{
-    min-height: 300%;
+    min-height: 280%;
   }
 
   .cartas_container{
@@ -514,6 +513,10 @@ body{
   }
 
   /*diplomas*/
+  .carousel{
+    overflow-x: scroll;
+  }
+
   .carousel-inner{
     width: 100%;
   }

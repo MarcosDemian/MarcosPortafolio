@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	carousel.innerHTML += carouselContent;
 
 	const startScrolling = () => {
-		if (!isHovered) {
+		if (!isHovered && window.matchMedia('(min-width: 576px)').matches) {
 			scrollAmount -= speed;
 			if (Math.abs(scrollAmount) >= carousel.scrollWidth / 2) {
 				scrollAmount = 0;
