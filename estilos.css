@@ -599,4 +599,9 @@ body{
     grid-column-gap: 0;
     grid-row-gap: .5rem;
   }
+
+  .lista{
+    text-align: center;
+    justify-items: center;
+  }
 }
