@@ -526,21 +526,77 @@ body{
 }
 
 /* Pantallas de hasta 768px (tablets en vertical) */
-@media (max-width: 768px) {
-  /* Estilos para tablets */
-}
+@media (min-width: 577px) and (max-width: 1080px) {
+  /* global */
+  .titulos{
+    font-size: 3rem;
+  }
 
-/* Pantallas de hasta 992px (tablets en horizontal y laptops pequeñas) */
-@media (max-width: 992px) {
-  /* Estilos para dispositivos medianos */
-}
+  /* aside */
+  .logo_figure{
+    height: 20%;
+  }
 
-/* Pantallas de hasta 1200px (laptops grandes y pantallas de escritorio) */
-@media (max-width: 1200px) {
-  /* Estilos para pantallas grandes */
-}
+  .logo_img{
+    width: 100%;
+  }
 
-/* Pantallas de más de 1200px (monitores grandes) */
-@media (min-width: 1201px) {
-  /* Estilos para pantallas muy grandes */
+  .nombre{
+    font-size: 2rem;
+  }
+
+  .puesto{
+    font-size: 1rem;
+  }
+
+  /* navbar */
+  .selectores{
+    width: 80%;
+  }
+
+  .selector_li{
+    margin: 40% 0;
+  }
+
+  /* sobre mi */
+  .texto{
+    font-size: .8rem;
+  }
+
+  .btn_container{
+    padding: 0 .5rem;
+  }
+
+  .boton{
+    padding: .5rem;
+    font-size: .7rem;
+    margin: .5rem .2rem;
+  }
+
+  /* proyectos */
+  #proyectos{
+    min-height: 200%;
+  }
+
+  .cartas_container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carta_proyecto:hover{
+    transform: none;
+  }
+
+  /* habilidades */
+  #habilidades{
+    min-height: 300%;
+    grid-template-rows: 10% 75% 15%;
+  }
+
+  .contenedor_grid {
+    grid-template-columns: none;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: .5rem;
+  }
 }
