@@ -605,3 +605,40 @@ body{
     justify-items: center;
   }
 }
+
+@media (orientation: landscape) and (min-width: 577px){
+  
+  /* navbar */
+  .icono_titulo{
+    display: none;
+  }
+
+  .selectores {
+    width: 60%;
+  }
+
+  /* sobre mi */
+  .nombre{
+    font-size: 1.5rem;
+  }
+
+  .man_imagen{
+    display: none;
+  }
+
+  .btn_container{
+    width: 100%;
+    flex-direction: row;
+  }
+
+  /* proyectos*/
+
+  #proyectos{
+    min-height: 400%;
+  }
+
+  /* diplomas */
+  .diplomas_container{
+    margin: 1rem 0;
+  }
+}
