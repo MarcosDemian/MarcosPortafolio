@@ -52,7 +52,7 @@ body{
 }
 
 .slider{
-  width: 95%;
+  width: 100%;
   height: 95%;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -118,7 +118,8 @@ body{
 
 #sobre_mi{
   display: grid;
-  grid-template-rows: auto auto minmax(20%, 50%);
+  grid-template-rows: auto auto 40%;
+  grid-template-columns: 100%;
 }
 
 .titulos{
@@ -144,18 +145,15 @@ body{
 .adicional{
   display: flex;
   align-items: center;
-}
-
-.man_imagen{
-  width: 40%;
+  justify-content: center;
 }
 
 .btn_container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  width: 60%;
+  width: 100%;
   height: 100%;
   padding: 0 2rem;
 }
@@ -470,10 +468,6 @@ body{
   }
 
   /*sobre mi*/
-  .man_imagen{
-    display: none;
-  }
-
   .adicional{
     justify-content: center;
   }
@@ -481,6 +475,7 @@ body{
   .btn_container{
     align-items: center;
     width: 100%;
+    flex-direction: column;
   }
 
   .boton{
@@ -560,11 +555,13 @@ body{
 
   /* sobre mi */
   .texto{
-    font-size: .8rem;
+    font-size: 1rem;
   }
 
   .btn_container{
     padding: 0 .5rem;
+    align-items: center;
+    flex-direction: column;
   }
 
   .boton{
@@ -603,42 +600,5 @@ body{
   .lista{
     text-align: center;
     justify-items: center;
-  }
-}
-
-@media (orientation: landscape) and (min-width: 577px){
-  
-  /* navbar */
-  .icono_titulo{
-    display: none;
-  }
-
-  .selectores {
-    width: 60%;
-  }
-
-  /* sobre mi */
-  .nombre{
-    font-size: 1.5rem;
-  }
-
-  .man_imagen{
-    display: none;
-  }
-
-  .btn_container{
-    width: 100%;
-    flex-direction: row;
-  }
-
-  /* proyectos*/
-
-  #proyectos{
-    min-height: 400%;
-  }
-
-  /* diplomas */
-  .diplomas_container{
-    margin: 1rem 0;
   }
 }
