@@ -603,7 +603,7 @@ body{
   }
 }
 
-@media (orientation: landscape) and (max-width: 577px){
+@media (orientation: landscape) and (min-width: 577px){
   
   /* navbar */
   .icono_titulo{
@@ -622,6 +622,11 @@ body{
   .btn_container{
     flex-direction: row;
     align-items: center;
+  }
+
+  /* proyectos */
+  #proyectos{
+    min-height: 200%;
   }
 
   /* diplomas */
