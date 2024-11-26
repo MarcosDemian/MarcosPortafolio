@@ -602,3 +602,30 @@ body{
     justify-items: center;
   }
 }
+
+@media (orientation: landscape) and (max-width: 577px){
+  
+  /* navbar */
+  .icono_titulo{
+    display: none;
+  }
+
+  .selectores {
+    width: 60%;
+  }
+
+  /* sobre mi */
+  .nombre{
+    font-size: 1.5rem;
+  }
+
+  .btn_container{
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* diplomas */
+  .diplomas_container{
+    margin: 1rem 0;
+  }
+}
