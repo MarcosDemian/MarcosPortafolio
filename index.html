@@ -47,7 +47,7 @@
         }
 
         /* Estructura móvil (vertical) */
-        @media (max-width: 767px) {
+        @media (max-width: 1099px) {
             #cv-container {
                 flex-direction: column;
                 overflow-y: auto;
@@ -92,6 +92,12 @@
                 font-size: 1.5rem;
             }
 
+            #education {
+                color: white;
+                font-size: 1.5rem;
+                gap: 10px;
+            }
+
             #contact {
                 color: white;
                 font-size: 1.4rem;
@@ -104,7 +110,7 @@
         }
 
         /* Estructura escritorio (horizontal) */
-        @media (min-width: 768px) {
+        @media (min-width: 1100px) {
             #cv-container {
                 display: grid;
                 grid-template-columns: 1fr 2fr;
@@ -156,24 +162,43 @@
 
             #skills {
                 display: flex;
+                flex-direction: column;
                 flex: 0 0 35%;
                 padding: .5rem 1rem 0 1rem;
                 color: white;
-                flex-direction: row;
                 justify-content: space-evenly;
                 border-left: 2px solid var(--color-gold);
             }
 
+            .skills-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
             #projects {
-                flex: 0 0 55%;
+                flex: 0 0 35%;
                 padding: .5rem 1rem 0 1rem;
                 color: white;
                 overflow-y: auto;
                 border-left: 2px solid var(--color-gold);
             }
 
+            #education {
+                flex: 0 0 15%;
+                padding: 0 1rem;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                border-left: 2px solid var(--color-gold);
+            }
+
+            #education ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
             #contact {
-                flex: 0 0 10%;
+                flex: 0 0 15%;
                 padding: 0 1rem;
                 color: white;
                 display: grid;
@@ -182,14 +207,7 @@
             }
         }
 
-        @media (min-width: 960px) {
-            #contact {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                gap: 10px;
-            }
-        }
+        
 
         /* Estilos tipográficos */
         h1 {
@@ -212,10 +230,14 @@
             font-family: var(--font-titles);
         }
 
+        h4 {
+            font-family: var(--font-titles);
+        }
+
         p,
         li {
             line-height: 1.6;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.2rem;
             font-family: var(--font-texts);
         }
 
@@ -264,6 +286,10 @@
             overflow-wrap: break-word;
             max-width: 100%;
         }
+
+        .education-item {
+            margin-bottom: 0;
+        }
     </style>
     <!-- Iconos (opcional) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -299,7 +325,8 @@
         <div class="right-column">
             <section id="skills">
                 <h2>Habilidades Técnicas</h2>
-                <ul>
+                <div class="skills-list">
+                    <ul>
                     <h3>Frontend</h3>
                     <li>HTML5, CSS3, JavaScript (ES6+)</li>
                     <li>React</li>
@@ -317,6 +344,7 @@
                     <h3>Bases de Datos</h3>
                     <li>MySQL</li>
                 </ul>
+                </div>
             </section>
 
             <section id="projects">
@@ -324,10 +352,19 @@
                 <div class="project">
                     <h3><a class="links" href="https://ireneprueba.netlify.app/" target="_blank">Sitio Web Corporativo - Fideos Nona Irene</a></h3>
                     <p>
-                        Este sitio web presenta la esencia de Nona Irene, un espacio diseñado para dar a conocer su identidad, trayectoria y productos. Aquí encontrarás su historia, valores fundamentales y un catálogo detallado de lo que ofrecen, creado para transmitir profesionalismo y confianza.
+                        Este sitio web presenta la esencia de Nona Irene, un espacio diseñado para dar a conocer su identidad, trayectoria y productos.
                     </p>
                     <p><strong>Tecnologías:</strong> CSS, React, Node.js, JSON</p>
                 </div>
+            </section>
+
+            <section id="education">
+                <h2>Estudios</h2>
+                <ul>
+                    <li class="education-item"><h4>Backend:</h4> Centro de E-Learning UTN</li>
+                    <li class="education-item"><h4>FullStack:</h4> Bootcamp Henry</li>
+                    <li class="education-item"><h4>Educación Secundaria:</h4> Escuela N° 31 "Manuel Dorrego"</li>
+                </ul>
             </section>
 
             <section id="contact">
