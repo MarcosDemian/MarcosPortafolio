@@ -1,338 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="estilos.css" />
-    <title>Marcos Portafolio</title>
-  </head>
-  <body>
-    <div class="contenedor_principal">
-      <div class="contenido_container">
-        <nav class="barra_nav">
-          <ul class="selectores">
-            <li class="selector_li">
-              <a class="selector_a" href="#sobre_mi">
-                <img
-                  class="iconos"
-                  src="./icons/navbar/usuario.svg"
-                  alt="sobre mí icono"
-                />
-              </a>
-              <h2 class="icono_titulo">Sobre Mí</h2>
-            </li>
-            <li class="selector_li">
-              <a class="selector_a" href="#proyectos">
-                <img
-                  class="iconos"
-                  src="./icons/navbar/carpeta.svg"
-                  alt="proyectos icono"
-                />
-              </a>
-              <h2 class="icono_titulo">Proyectos</h2>
-            </li>
-            <li class="selector_li">
-              <a class="selector_a" href="#habilidades">
-                <img
-                  class="iconos"
-                  src="./icons/navbar/habilidad.svg"
-                  alt="habilidades icono"
-                />
-              </a>
-              <h2 class="icono_titulo">Habilidades</h2>
-            </li>
-            <li class="selector_li">
-              <a class="selector_a" href="#diplomas">
-                <img
-                  class="iconos"
-                  src="./icons/navbar/diploma.svg"
-                  alt="contacto icono"
-                />
-              </a>
-              <h2 class="icono_titulo">Diplomas</h2>
-            </li>
-          </ul>
-        </nav>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <title>Marcos Garcia - Full Stack Dev</title>
+    <style>
+        :root {
+            --font-texts: "Manrope", sans-serif;
+            --font-titles: "Fira Code", monospace;
+            --color-gold: #af9661;
+        }
 
-        <main class="slider">
-          <article id="sobre_mi" class="slide">
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Arial", sans-serif;
+        }
+
+        #cv-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #171a16;
+            opacity: 0.9;
+            background-image: radial-gradient(circle at center center, #000000, #171a16), repeating-radial-gradient(circle at center center, #000000, #000000, 16px, transparent 32px, transparent 16px);
+            background-blend-mode: multiply;
+        }
+
+        .logo {
+            width: 160px;
+            height: 150px;
+        }
+
+        /* Estructura móvil (vertical) */
+        @media (max-width: 767px) {
+            #cv-container {
+                flex-direction: column;
+                overflow-y: auto;
+                /* Permite scroll vertical solo en móvil */
+            }
+
+            header {
+                padding: 2rem 1.5rem;
+                color: white;
+                min-height: 30vh;
+            }
+
+            .fullstack-cv-cont {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cv-link {
+                width: fit-content;
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            #about {
+                border-top: 1px solid var(--color-gold);
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            #skills {
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            #projects {
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            #contact {
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            .contact-method {
+                margin: 10px 0 10px 0;
+            }
+        }
+
+        /* Estructura escritorio (horizontal) */
+        @media (min-width: 768px) {
+            #cv-container {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                /* Columna izquierda más estrecha */
+                grid-template-rows: 100%;
+                /* Ocupa toda la altura */
+                gap: 0;
+            }
+
+            /* Columna izquierda (Header + About) */
+            .left-column {
+                grid-column: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            header {
+                flex: 0 0 auto;
+                padding: 1rem 1.5rem;
+                color: white;
+            }
+
+            #about {
+                flex: 1;
+                padding: 0 1rem;
+                color: white;
+                overflow-y: auto;
+                /* Scroll interno si contenido excede */
+            }
+
+            .fullstack-cv-cont {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .cv-link {
+                padding: .5rem;
+            }
+
+            /* Columna derecha (Skills + Projects + Contact) */
+            .right-column {
+                grid-column: 2;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+            }
+
+            #skills {
+                display: flex;
+                flex: 0 0 35%;
+                padding: .5rem 1rem 0 1rem;
+                color: white;
+                flex-direction: row;
+                justify-content: space-evenly;
+                border-left: 2px solid var(--color-gold);
+            }
+
+            #projects {
+                flex: 0 0 55%;
+                padding: .5rem 1rem 0 1rem;
+                color: white;
+                overflow-y: auto;
+                border-left: 2px solid var(--color-gold);
+            }
+
+            #contact {
+                flex: 0 0 10%;
+                padding: 0 1rem;
+                color: white;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-left: 2px solid var(--color-gold);
+            }
+        }
+
+        @media (min-width: 960px) {
+            #contact {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                gap: 10px;
+            }
+        }
+
+        /* Estilos tipográficos */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-family: var(--font-titles);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            margin-right: .5rem;
+            font-family: var(--font-titles);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 1rem 0 0.5rem;
+            font-family: var(--font-titles);
+        }
+
+        p,
+        li {
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            font-family: var(--font-texts);
+        }
+
+        ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .project {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-method i {
+            margin-right: 5px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .cv-link {
+            min-width: 60px;
+            background-color: var(--color-gold);
+            border-radius: 10px;
+            color: #000;
+            font-family: var(--font-texts);
+            font-weight: 700;
+        }
+
+        .links {
+            color: white;
+        }
+    </style>
+    <!-- Iconos (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <div id="cv-container">
+        <!-- Columna izquierda -->
+        <div class="left-column">
             <header>
-              <h2 class="titulos">Sobre Mí</h2>
+                <img class="logo" src="assets/img/logo-d.png" alt="" />
+                <h1>Marcos Demian Garcia</h1>
+                <div class="fullstack-cv-cont">
+                    <h3>Full Stack Developer</h3>
+                    <a class="cv-link" href="assets/cv/Marcos Demian Garcia CV.pdf">CV <i class="fa-solid fa-file-arrow-down"></i></a>
+                </div>
             </header>
-            <p class="texto">
-              Poseo experiencia en la creación de aplicaciones tanto del lado
-              del cliente como del servidor. Me especializo en construir
-              soluciones completas que combinan interfaces intuitivas con
-              sistemas backend robustos y escalables. Disfruto resolver
-              problemas complejos y optimizar cada aspecto del desarrollo para
-              asegurar un rendimiento óptimo y una excelente experiencia de
-              usuario.
-            </p>
-            <section class="adicional">
-              <div class="btn_container">
-                <div class="btn_div">
-                  <a
-                    href="https://www.linkedin.com/in/marcos-demian-garcia/"
-                    target="_blank"
-                    class="boton"
-                  >
-                    LinkedIn
-                  </a>
-                  <img
-                    class="btn_iconos"
-                    src="./icons/redes/linkedin.svg"
-                    alt="linkedin_icono"
-                  />
-                </div>
 
-                <div class="btn_div">
-                <a
-                  href="./cv/Marcos Demian Garcia CV.pdf"
-                  download="Marcos Demian Garcia CV.pdf"
-                  class="boton"
-                >
-                  Descargar CV
-                </a>
-                <img
-                  class="btn_iconos"
-                  src="./icons/navbar/download.svg"
-                  alt="descarga_icono"
-                />
-                </div>
-
-                <div class="btn_div">
-                <a href="mailto:demiangarcia254@gmail.com" class="boton">
-                  demiangarcia254@gmail.com
-                </a>
-                <img
-                    class="btn_iconos"
-                    src="./icons/navbar/sobre.svg"
-                    alt="gmail_icono"
-                  />
-                </div>
-              </div>
+            <section id="about">
+                <h2>Sobre Mí</h2>
+                <p>
+                    Me formé como desarrollador web full stack ya que disfruto construir
+                    aplicaciones escalables y bien estructuradas, tanto en el frontend
+                    como en el backend. Trabajo con React.js, Node.js, Express y MySQL,
+                    apoyándome también en sólidos conocimientos de HTML5, CSS3 y
+                    JavaScript. Me involucro en todo el proceso: desde el diseño y
+                    consumo de APIs REST hasta la integración de bases de datos.
+                </p>
             </section>
-          </article>
+        </div>
 
-          <article id="proyectos" class="slide">
-            <header>
-              <h2 class="titulos">Proyectos</h2>
-            </header>
-            <div class="cartas_container">
+        <!-- Columna derecha -->
+        <div class="right-column">
+            <section id="skills">
+                <h2>Habilidades Técnicas</h2>
+                <ul>
+                    <h3>Frontend</h3>
+                    <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                    <li>React</li>
+                    <li>Figma</li>
+                </ul>
 
-              <article class="carta_proyecto">
-                <a href="https://solodle.netlify.app/" target="_blank">
-                <img class="img_fondo" src="./imagenes/Solodle.webp" alt="preview_proyecto">
-                <div class="tec_div">
-                  <img class="icono_tec" src="./icons/tecnologias/react.svg" alt="react_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/css.svg" alt="css_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/javascript.svg" alt="javascript">
-                  <img class="icono_tec" src="./icons/tecnologias/node.svg" alt="node_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/express.svg" alt="express_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/git.svg" alt="git_logo">
-                </div>
-                <img class="icono_link" src="./icons/redes/web.svg" alt="web_icono">
-                </a>
-              </article>
+                <ul>
+                    <h3>Backend</h3>
+                    <li>Node.js, Express</li>
+                    <li>REST APIs</li>
+                    <li>Autenticación JWT, OAuth</li>
+                </ul>
 
-              <article class="carta_proyecto">
-                <a href="https://github.com/MarcosDemian/Chat-app" target="_blank">
-                <img class="img_fondo" src="./imagenes/Chat.webp" alt="preview_proyecto">
-                <div class="tec_div">
-                  <img class="icono_tec" src="./icons/tecnologias/react.svg" alt="html_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/css.svg" alt="css_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/javascript.svg" alt="javascript_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/node.svg" alt="node_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/express.svg" alt="express_logo">
-                </div>
-                <img class="icono_link" src="./icons/redes/github.svg" alt="github_icono">
-                </a>
-              </article>
+                <ul>
+                    <h3>Bases de Datos</h3>
+                    <li>MySQL</li>
+                </ul>
+            </section>
 
-              <article class="carta_proyecto">
-                <a href="https://github.com/MarcosDemian" target="_blank">
-                <img class="img_fondo" src="./imagenes/Historia.webp" alt="preview_proyecto">
-                <div class="tec_div">
-                  <img class="icono_tec" src="./icons/tecnologias/html5.svg" alt="html_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/css.svg" alt="css_logo">
-                  <img class="icono_tec" src="./icons/tecnologias/php.svg" alt="">
-                  <img class="icono_tec" src="./icons/tecnologias/mysql.svg" alt="">
-                </div>
-                <img class="icono_link" src="./icons/redes/github.svg" alt="github_icono">
-                </a>
-              </article>
-            </div>
-            <div class="btn_div_proyectos">
-              <a
-                href="https://github.com/MarcosDemian"
-                target="_blank"
-                class="boton"
-              >
-                Ver Más
-              </a>
-              <img
-                class="btn_iconos"
-                src="./icons/redes/github.svg"
-                alt="github_icono"
-              />
-            </div>
-          </article>
-
-          <article id="habilidades" class="slide">
-            <header>
-              <h2 class="titulos">Habilidades</h2>
-            </header>
-
-            <div class="contenedor_grid">
-              <ul class="lista">
-                <li class="tec_titulos">Lenguajes de programación</li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/html5.svg"
-                    alt="html5_icono"
-                  />HTML5
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/css.svg"
-                    alt="css3_icono"
-                  />CSS3
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/javascript.svg"
-                    alt="javascript_icono"
-                  />JavaScript
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/php.svg"
-                    alt="php_icono"
-                  />PHP
-                </li>
-              </ul>
-              <ul class="lista">
-                <li class="tec_titulos">Frameworks/Librerías</li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/react.svg"
-                    alt="react_icono"
-                  />React.JS
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/codeigniter.svg"
-                    alt="codeigniter_icon"
-                  />CodeIgniter
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/express.svg"
-                    alt="express_icono"
-                  />Express
-                </li>
-              </ul>
-              <ul class="lista">
-                <li class="tec_titulos">Bases de datos</li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/mysql.svg"
-                    alt="mysql_icono"
-                  />MySQL
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/mongodb.svg"
-                    alt="mongodb_icono"
-                  />MongoDB
-                </li>
-              </ul>
-              <ul class="lista">
-                <li class="tec_titulos">Otras herramientas</li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/node.svg"
-                    alt="expres_icono"
-                  />Node.JS
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/vscode.svg"
-                    alt="expres_icono"
-                  />VSCode
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/git.svg"
-                    alt="expres_icono"
-                  />Git
-                </li>
-                <li class="tecnologia">
-                  <img
-                    class="tec_icono"
-                    src="./icons/tecnologias/npm.svg"
-                    alt="expres_icono"
-                  />npm
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="texto">
-                Mi enfoque como desarrollador full stack se basa en dominar una
-                amplia gama de tecnologías que abarcan todo el ciclo de
-                desarrollo web. Desde frameworks modernos para el frontend hasta
-                herramientas poderosas para el backend y la gestión de bases de
-                datos, siempre busco la mejor solución técnica para cada
-                proyecto.
-              </p>
-            </div>
-          </article>
-
-          <article id="diplomas" class="slide">
-            <header>
-              <h2 class="titulos">Diplomas</h2>
-            </header>
-            <section class="diplomas_container">
-              <div class="carousel">
-                <div class="carousel-inner">
-                  <img class="diploma" src="./diplomas/Diploma-PHP-Wps.webp" alt="diploma_php_img">
-                  <img class="diploma" src="./diplomas/web-avanzado.webp" alt="diploma_web_img">
-                  <img class="diploma" src="./diplomas/Professional-backend.webp" alt="diploma_backend_img">
+            <section id="projects">
+                <h2>Proyectos Destacados</h2>
+                <div class="project">
+                    <h3><a class="links" href="https://ireneprueba.netlify.app/" target="_blank">Sitio Web Corporativo - Fideos Nona Irene</a></h3>
+                    <p>
+                        Este sitio web presenta la esencia de Nona Irene, un espacio diseñado para dar a conocer su identidad, trayectoria y productos. Aquí encontrarás su historia, valores fundamentales y un catálogo detallado de lo que ofrecen, creado para transmitir profesionalismo y confianza.
+                    </p>
+                    <p><strong>Tecnologías:</strong> CSS, React, Node.js, JSON</p>
                 </div>
             </section>
-          </article>
-        </main>
-      </div>
 
-      <aside class="logo_container">
-        <figure class="logo_figure">
-          <img
-            class="logo_img"
-            src="./icons/logo-d.png"
-            alt="marcos_garcia_logo"
-          />
-        </figure>
-        <h2 class="nombre">Marcos Demian Garcia</h2>
-        <h1 class="puesto">
-          Desarrollador Web <br />
-          Full Stack
-        </h1>
-      </aside>
+            <section id="contact">
+                <div class="contact-method">
+                    <i class="fas fa-envelope" style="color: #af9661;"></i>
+                    <a href="mailto:demiangarcia254@gmail" target="_blank" class="links">demiangarcia254@gmail.com</a>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone" style="color: #af9661;"></i>
+                    <span class="links">+54 1151804739</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-linkedin " style="color: #af9661;"></i>
+                    <a class="links" href="https://www.linkedin.com/in/marcos-demian-garcia/" target="_blank">linkedin.com/in/marcos-demian-garcia/</a>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-github" style="color: #af9661;"></i>
+                    <a class="links" href="https://github.com/MarcosDemian" target="_blank">github.com/MarcosDemian</a>
+                </div>
+            </section>
+        </div>
     </div>
-    <script src="main.js"></script>
-  </body>
+</body>
+
 </html>
