@@ -9,288 +9,293 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <title>Marcos Garcia - Full Stack Dev</title>
     <style>
-        :root {
-            --font-texts: "Manrope", sans-serif;
-            --font-titles: "Fira Code", monospace;
-            --color-gold: #af9661;
-        }
+    :root {
+        --font-texts: "Manrope", sans-serif;
+        --font-titles: "Fira Code", monospace;
+        --color-gold: #af9661;
+    }
 
-        /* Reset y estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* Reset y base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        html,
-        body {
-            width: 100vw;
-            height: 100dvh;
-            overflow: hidden;
-            font-family: "Arial", sans-serif;
-        }
+    html {
+        /* Ajuste: menos crecimiento en pantallas medianas */
+        font-size: clamp(12px, 0.6vw + 7px, 18px);
+        scroll-behavior: smooth;
+    }
 
+    body {
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        font-family: var(--font-texts);
+    }
+
+    #cv-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #171a16;
+        opacity: 0.9;
+        background-image: radial-gradient(circle at center center, #000000, #171a16),
+            repeating-radial-gradient(circle at center center, #000000, #000000, 16px, transparent 32px, transparent 16px);
+        background-blend-mode: multiply;
+    }
+
+    .logo {
+        width: 160px;
+        height: 150px;
+    }
+
+    /* ----------- MÓVIL ----------- */
+    @media (max-width: 1099px) {
         #cv-container {
-            width: 100%;
-            height: 100%;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        header {
+            padding: 2rem 1.5rem;
+            color: white;
+            min-height: 30vh;
+        }
+
+        .fullstack-cv-cont {
             display: flex;
             flex-direction: column;
-            background-color: #171a16;
-            opacity: 0.9;
-            background-image: radial-gradient(circle at center center, #000000, #171a16), repeating-radial-gradient(circle at center center, #000000, #000000, 16px, transparent 32px, transparent 16px);
-            background-blend-mode: multiply;
-        }
-
-        .logo {
-            width: 160px;
-            height: 150px;
-        }
-
-        /* Estructura móvil (vertical) */
-        @media (max-width: 1099px) {
-            #cv-container {
-                flex-direction: column;
-                overflow-y: auto;
-                /* Permite scroll vertical solo en móvil */
-            }
-
-            header {
-                padding: 2rem 1.5rem;
-                color: white;
-                min-height: 30vh;
-            }
-
-            .fullstack-cv-cont {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cv-link {
-                width: fit-content;
-                padding: 1rem;
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-
-            #about {
-                border-top: 1px solid var(--color-gold);
-                color: white;
-                font-size: 1.5rem;
-            }
-
-            #skills {
-                color: white;
-                font-size: 1.5rem;
-            }
-
-            #projects {
-                color: white;
-                font-size: 1.5rem;
-            }
-
-            #education {
-                color: white;
-                font-size: 1.5rem;
-                gap: 10px;
-            }
-
-            #contact {
-                color: white;
-                font-size: 1.4rem;
-                padding: 1.5rem 1.5rem 3rem 1.5rem;
-            }
-
-            .contact-method {
-                margin: 10px 0 10px 0;
-            }
-        }
-
-        /* Estructura escritorio (horizontal) */
-        @media (min-width: 1100px) {
-            #cv-container {
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-                /* Columna izquierda más estrecha */
-                grid-template-rows: 100%;
-                /* Ocupa toda la altura */
-                gap: 0;
-            }
-
-            /* Columna izquierda (Header + About) */
-            .left-column {
-                grid-column: 1;
-                display: flex;
-                flex-direction: column;
-            }
-
-            header {
-                flex: 0 0 auto;
-                padding: 1rem 1.5rem;
-                color: white;
-            }
-
-            #about {
-                flex: 1;
-                padding: 0 1rem;
-                color: white;
-                overflow-y: auto;
-                /* Scroll interno si contenido excede */
-            }
-
-            .fullstack-cv-cont {
-                display: flex;
-                flex-direction: row;
-                gap: 1rem;
-                align-items: center;
-            }
-
-            .cv-link {
-                padding: .5rem;
-            }
-
-            /* Columna derecha (Skills + Projects + Contact) */
-            .right-column {
-                grid-column: 2;
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-            }
-
-            #skills {
-                display: flex;
-                flex-direction: column;
-                flex: 0 0 35%;
-                padding: .5rem 1rem 0 1rem;
-                color: white;
-                justify-content: space-evenly;
-                border-left: 2px solid var(--color-gold);
-            }
-
-            .skills-list {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            #projects {
-                flex: 0 0 35%;
-                padding: .5rem 1rem 0 1rem;
-                color: white;
-                overflow-y: auto;
-                border-left: 2px solid var(--color-gold);
-            }
-
-            #education {
-                flex: 0 0 15%;
-                padding: 0 1rem;
-                color: white;
-                display: flex;
-                flex-direction: column;
-                border-left: 2px solid var(--color-gold);
-            }
-
-            #education ul {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            #contact {
-                flex: 0 0 15%;
-                padding: 0 1rem;
-                color: white;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                border-left: 2px solid var(--color-gold);
-            }
-        }
-
-        
-
-        /* Estilos tipográficos */
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            font-family: var(--font-titles);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            padding-bottom: 0.5rem;
-            margin-right: .5rem;
-            font-family: var(--font-titles);
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            margin: 1rem 0 0.5rem;
-            font-family: var(--font-titles);
-        }
-
-        h4 {
-            font-family: var(--font-titles);
-        }
-
-        p,
-        li {
-            line-height: 1.6;
-            margin-bottom: 0.2rem;
-            font-family: var(--font-texts);
-        }
-
-        ul {
-            list-style-position: inside;
-            padding-left: 0.5rem;
-        }
-
-        li {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-method i {
-            margin-right: 5px;
-            width: 20px;
-            text-align: center;
+            gap: 1rem;
         }
 
         .cv-link {
-            min-width: 60px;
-            background-color: var(--color-gold);
-            border-radius: 10px;
-            color: #000;
-            font-family: var(--font-texts);
-            font-weight: 700;
+            width: fit-content;
+            padding: 1rem;
         }
 
-        .links {
+        section {
+            padding: 1.5rem;
+        }
+
+        #about,
+        #skills,
+        #projects,
+        #education,
+        #contact {
             color: white;
         }
 
-        .link-long {
-            overflow-wrap: break-word;
-            max-width: 100%;
+        #contact {
+            padding: 1.5rem 1.5rem 3rem 1.5rem;
         }
 
-        .education-item {
-            margin-bottom: 0;
+        .contact-method {
+            margin: 10px 0;
         }
-    </style>
+    }
+
+    /* ----------- ESCRITORIO ----------- */
+    @media (min-width: 1100px) {
+        #cv-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 100%;
+        }
+
+        .left-column {
+            grid-column: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            flex: 0 0 auto;
+            padding: 1rem 1.5rem;
+            color: white;
+        }
+
+        #about {
+            flex: 1;
+            padding: 0 1rem;
+            color: white;
+            overflow-y: auto;
+        }
+
+        .fullstack-cv-cont {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .cv-link {
+            padding: .5rem;
+        }
+
+        .right-column {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #skills {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 35%;
+            padding: .5rem 1rem 0 1rem;
+            color: white;
+            justify-content: space-evenly;
+            border-left: 2px solid var(--color-gold);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #projects {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            flex: 0 0 35%;
+            padding: .5rem 1rem 0 1rem;
+            color: white;
+            overflow-y: auto;
+            border-left: 2px solid var(--color-gold);
+        }
+
+        #education {
+            flex: 0 0 15%;
+            padding: 0 1rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            border-left: 2px solid var(--color-gold);
+        }
+
+        #education ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #contact {
+            flex: 0 0 15%;
+            padding: 0 1rem;
+            color: white;
+            display: flex;
+            gap: 1rem;
+            border-left: 2px solid var(--color-gold);
+        }
+    }
+
+    /* ----------- TIPOGRAFÍA ----------- */
+    h1 {
+        font-size: clamp(1.4rem, 2vw + 1rem, 2.8rem);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        font-family: var(--font-titles);
+    }
+
+    h2 {
+        font-size: clamp(1.1rem, 1.6vw + 0.8rem, 2rem);
+        padding-bottom: 0.5rem;
+        margin-right: .5rem;
+        font-family: var(--font-titles);
+    }
+
+    h3 {
+        font-size: clamp(0.95rem, 1.2vw + 0.6rem, 1.8rem);
+        margin: 1rem 0 0.5rem;
+        font-family: var(--font-titles);
+    }
+
+    h4 {
+        font-family: var(--font-titles);
+        font-size: clamp(0.85rem, 0.9vw + 0.5rem, 1.5rem);
+    }
+
+    p,
+    li {
+        line-height: 1.6;
+        margin-bottom: 0.2rem;
+        font-size: clamp(0.8rem, 0.6vw + 0.55rem, 1.45rem);
+        font-family: var(--font-texts);
+    }
+
+    ul {
+        list-style-position: inside;
+        padding-left: 0.5rem;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .project {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-method {
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-method i {
+        margin-right: 5px;
+        text-align: center;
+        color: #af9661;
+    }
+
+    .icons-size {
+        font-size: clamp(1.3rem, 1vw + 0.5rem, 2rem);
+    }
+
+    .cv-link {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        min-width: 60px;
+        background-color: var(--color-gold);
+        border-radius: 10px;
+        color: #000;
+        font-weight: 700;
+        font-family: var(--font-texts);
+        font-size: clamp(0.9rem, 0.7vw + 0.5rem, 1.15rem);
+    }
+
+    .links {
+        color: white;
+    }
+
+    .links-size {
+        font-size: clamp(0.8rem, 0.6vw + 0.55rem, 1.35rem);
+    }
+
+    .link-long {
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .education-item {
+        margin-bottom: 0;
+    }
+
+    /* Ajuste extra para laptops (opcional) */
+    @media (max-width: 1600px) and (min-width: 1100px) {
+        html {
+            font-size: clamp(11px, 0.55vw + 7px, 17px);
+        }
+    }
+</style>
+
     <!-- Iconos (opcional) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -303,13 +308,13 @@
                 <img class="logo" src="assets/img/logo-d.png" alt="" />
                 <h1>Marcos Demian Garcia</h1>
                 <div class="fullstack-cv-cont">
-                    <h3>Full Stack Developer</h3>
-                    <a class="cv-link" href="assets/cv/Marcos Demian Garcia CV.pdf">CV <i class="fa-solid fa-file-arrow-down"></i></a>
+                    <h2>Full Stack Developer</h2>
+                    <a class="cv-link" href="assets/cv/Marcos Demian Garcia CV.pdf">CV <i class="fa-solid fa-file-arrow-down icons-size"></i></a>
                 </div>
             </header>
 
             <section id="about">
-                <h2>Sobre Mí</h2>
+                <h3>Sobre Mí</h3>
                 <p>
                     Me formé como desarrollador web full stack ya que disfruto construir
                     aplicaciones escalables y bien estructuradas, tanto en el frontend
@@ -324,7 +329,7 @@
         <!-- Columna derecha -->
         <div class="right-column">
             <section id="skills">
-                <h2>Habilidades Técnicas</h2>
+                <h3>Habilidades Técnicas</h3>
                 <div class="skills-list">
                     <ul>
                     <h3>Frontend</h3>
@@ -349,7 +354,7 @@
             </section>
 
             <section id="projects">
-                <h2>Proyectos Destacados</h2>
+                <h3>Proyectos Destacados</h3>
                 <div class="project">
                     <h3><a class="links" href="https://ireneprueba.netlify.app/" target="_blank">Sitio Web Corporativo - Fideos Nona Irene</a></h3>
                     <p>
@@ -360,7 +365,7 @@
             </section>
 
             <section id="education">
-                <h2>Estudios</h2>
+                <h3>Estudios</h3>
                 <ul>
                     <li class="education-item"><h4>Backend:</h4> Centro de E-Learning UTN</li>
                     <li class="education-item"><h4>FullStack:</h4> Bootcamp Henry</li>
@@ -370,20 +375,18 @@
 
             <section id="contact">
                 <div class="contact-method">
-                    <i class="fas fa-envelope" style="color: #af9661;"></i>
-                    <a href="mailto:demiangarcia254@gmail" target="_blank" class="links link-long">demiangarcia254@gmail.com</a>
+                    <i class="fas fa-envelope icons-size"></i>
+                    <a href="mailto:demiangarcia254@gmail" target="_blank" class="links link-long links-size">demiangarcia254@gmail.com</a>
                 </div>
                 <div class="contact-method">
-                    <i class="fas fa-phone" style="color: #af9661;"></i>
-                    <a class="links" href="https://wa.me/5491151804739" target="_blank">+5491151804739</a>
+                    <i class="fas fa-phone icons-size"></i>
+                    <a class="links links-size" href="https://wa.me/5491151804739" target="_blank">+5491151804739</a>
                 </div>
                 <div class="contact-method">
-                    <i class="fab fa-linkedin " style="color: #af9661;"></i>
-                    <a class="links" href="https://www.linkedin.com/in/marcos-demian-garcia/" target="_blank">Marcos Demian Garcia</a>
+                    <a class="links links-size" href="https://www.linkedin.com/in/marcos-demian-garcia/" target="_blank"><i class="fab fa-linkedin icons-size"></i></a>
                 </div>
                 <div class="contact-method">
-                    <i class="fab fa-github" style="color: #af9661;"></i>
-                    <a class="links" href="https://github.com/MarcosDemian" target="_blank">github.com/MarcosDemian</a>
+                    <a class="links links-size" href="https://github.com/MarcosDemian" target="_blank"><i class="fab fa-github icons-size"></i></a>
                 </div>
             </section>
         </div>
