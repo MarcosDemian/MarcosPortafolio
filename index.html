@@ -2,395 +2,422 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
-    <title>Marcos Garcia - Full Stack Dev</title>
-    <style>
-    :root {
-        --font-texts: "Manrope", sans-serif;
-        --font-titles: "Fira Code", monospace;
-        --color-gold: #af9661;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+  <title>Marcos Garcia - Full Stack Dev</title>
+  <style>
+  :root {
+    --font-texts: "Manrope", sans-serif;
+    --font-titles: "Fira Code", monospace;
+    --color-gold: #af9661;
+  }
 
-    /* Reset y base */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  /* Reset y base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    html {
-        /* Ajuste: menos crecimiento en pantallas medianas */
-        font-size: clamp(12px, 0.6vw + 7px, 18px);
-        scroll-behavior: smooth;
-    }
+  html {
+    font-size: clamp(10px, 0.8vw + 8px, 18px);
+    scroll-behavior: smooth;
+  }
 
-    body {
-        width: 100vw;
-        height: 100dvh;
-        overflow: hidden;
-        font-family: var(--font-texts);
-    }
+  body {
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: var(--font-texts);
+  }
 
+  #cv-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #171a16;
+    opacity: 0.9;
+    background-image: radial-gradient(circle at center center, #000000, #171a16),
+      repeating-radial-gradient(circle at center center, #000000, #000000, 16px, transparent 32px, transparent 16px);
+    background-blend-mode: multiply;
+  }
+
+  .logo {
+    width: 140px;
+    height: 130px;
+  }
+
+  /* ----------- MÓVIL ----------- */
+  @media (max-width: 1099px) {
     #cv-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background-color: #171a16;
-        opacity: 0.9;
-        background-image: radial-gradient(circle at center center, #000000, #171a16),
-            repeating-radial-gradient(circle at center center, #000000, #000000, 16px, transparent 32px, transparent 16px);
-        background-blend-mode: multiply;
+      flex-direction: column;
+      overflow-y: auto;
     }
 
-    .logo {
-        width: 160px;
-        height: 150px;
+    header {
+      padding: 2rem 1.5rem;
+      color: white;
+      min-height: 30vh;
     }
 
-    /* ----------- MÓVIL ----------- */
-    @media (max-width: 1099px) {
-        #cv-container {
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        header {
-            padding: 2rem 1.5rem;
-            color: white;
-            min-height: 30vh;
-        }
-
-        .fullstack-cv-cont {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .cv-link {
-            width: fit-content;
-            padding: 1rem;
-        }
-
-        section {
-            padding: 1.5rem;
-        }
-
-        #about,
-        #skills,
-        #projects,
-        #education,
-        #contact {
-            color: white;
-        }
-
-        #contact {
-            padding: 1.5rem 1.5rem 3rem 1.5rem;
-        }
-
-        .contact-method {
-            margin: 10px 0;
-        }
-    }
-
-    /* ----------- ESCRITORIO ----------- */
-    @media (min-width: 1100px) {
-        #cv-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: 100%;
-        }
-
-        .left-column {
-            grid-column: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            flex: 0 0 auto;
-            padding: 1rem 1.5rem;
-            color: white;
-        }
-
-        #about {
-            flex: 1;
-            padding: 0 1rem;
-            color: white;
-            overflow-y: auto;
-        }
-
-        .fullstack-cv-cont {
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .cv-link {
-            padding: .5rem;
-        }
-
-        .right-column {
-            grid-column: 2;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        #skills {
-            display: flex;
-            flex-direction: column;
-            flex: 0 0 35%;
-            padding: .5rem 1rem 0 1rem;
-            color: white;
-            justify-content: space-evenly;
-            border-left: 2px solid var(--color-gold);
-        }
-
-        .skills-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        #projects {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            flex: 0 0 35%;
-            padding: .5rem 1rem 0 1rem;
-            color: white;
-            overflow-y: auto;
-            border-left: 2px solid var(--color-gold);
-        }
-
-        #education {
-            flex: 0 0 15%;
-            padding: 0 1rem;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            border-left: 2px solid var(--color-gold);
-        }
-
-        #education ul {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        #contact {
-            flex: 0 0 15%;
-            padding: 0 1rem;
-            color: white;
-            display: flex;
-            gap: 1rem;
-            border-left: 2px solid var(--color-gold);
-        }
-    }
-
-    /* ----------- TIPOGRAFÍA ----------- */
-    h1 {
-        font-size: clamp(1.4rem, 2vw + 1rem, 2.8rem);
-        margin-bottom: 0.5rem;
-        line-height: 1.2;
-        font-family: var(--font-titles);
-    }
-
-    h2 {
-        font-size: clamp(1.1rem, 1.6vw + 0.8rem, 2rem);
-        padding-bottom: 0.5rem;
-        margin-right: .5rem;
-        font-family: var(--font-titles);
-    }
-
-    h3 {
-        font-size: clamp(0.95rem, 1.2vw + 0.6rem, 1.8rem);
-        margin: 1rem 0 0.5rem;
-        font-family: var(--font-titles);
-    }
-
-    h4 {
-        font-family: var(--font-titles);
-        font-size: clamp(0.85rem, 0.9vw + 0.5rem, 1.5rem);
-    }
-
-    p,
-    li {
-        line-height: 1.6;
-        margin-bottom: 0.2rem;
-        font-size: clamp(0.8rem, 0.6vw + 0.55rem, 1.45rem);
-        font-family: var(--font-texts);
-    }
-
-    ul {
-        list-style-position: inside;
-        padding-left: 0.5rem;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .project {
-        margin-bottom: 1.5rem;
-    }
-
-    .contact-method {
-        display: flex;
-        align-items: center;
-    }
-
-    .contact-method i {
-        margin-right: 5px;
-        text-align: center;
-        color: #af9661;
-    }
-
-    .icons-size {
-        font-size: clamp(1.3rem, 1vw + 0.5rem, 2rem);
+    .fullstack-cv-cont {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .cv-link {
-        display: flex;
-        gap: .5rem;
-        align-items: center;
-        min-width: 60px;
-        background-color: var(--color-gold);
-        border-radius: 10px;
-        color: #000;
-        font-weight: 700;
-        font-family: var(--font-texts);
-        font-size: clamp(0.9rem, 0.7vw + 0.5rem, 1.15rem);
+      width: fit-content;
+      padding: 1rem;
     }
 
-    .links {
-        color: white;
+    section {
+      padding: 1.5rem;
     }
 
-    .links-size {
-        font-size: clamp(0.8rem, 0.6vw + 0.55rem, 1.35rem);
+    #about,
+    #skills,
+    #projects,
+    #education,
+    #contact {
+      color: white;
     }
 
-    .link-long {
-        overflow-wrap: break-word;
-        max-width: 100%;
+    .contact-method {
+      margin: 2rem 0;
+    }
+  }
+
+  /* ----------- ESCRITORIO ----------- */
+  @media (min-width: 1100px) {
+    #cv-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 100%;
     }
 
-    .education-item {
-        margin-bottom: 0;
+    .left-column {
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Ajuste extra para laptops (opcional) */
-    @media (max-width: 1600px) and (min-width: 1100px) {
-        html {
-            font-size: clamp(11px, 0.55vw + 7px, 17px);
-        }
+    header {
+      flex: 0 0 auto;
+      padding: 1rem 1.5rem;
+      color: white;
     }
+
+    #about {
+      flex: 1;
+      padding: 0 1rem;
+      color: white;
+      overflow-y: auto;
+    }
+
+
+    .fullstack-cv-cont {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .cv-link {
+      padding: .5rem;
+    }
+
+    .right-column {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #skills {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 35%;
+      padding: .5rem 1rem 0 1rem;
+      color: white;
+      justify-content: space-evenly;
+      border-left: 2px solid var(--color-gold);
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #projects {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      flex: 0 0 35%;
+      padding: .5rem 1rem 0 1rem;
+      color: white;
+      overflow-y: auto;
+      border-left: 2px solid var(--color-gold);
+    }
+
+    #education {
+      flex: 0 0 15%;
+      padding: 0 1rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--color-gold);
+    }
+
+    #education ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #contact {
+      flex: 0 0 15%;
+      padding: 0 1rem;
+      color: white;
+      display: flex;
+      gap: 2rem;
+      border-left: 2px solid var(--color-gold);
+    }
+  }
+
+  /* ----------- TIPOGRAFÍA ----------- */
+  h1 {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.8rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-family: var(--font-titles);
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 1.6vw + 0.8rem, 2rem);
+    padding-bottom: 0.5rem;
+    margin-right: .5rem;
+    font-family: var(--font-titles);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 1.3vw + 0.6rem, 1.8rem);
+    margin: .8rem 0 0.5rem;
+    font-family: var(--font-titles);
+  }
+
+  h4 {
+    font-family: var(--font-titles);
+    font-size: clamp(0.9rem, 0.9vw + 0.5rem, 1.5rem);
+  }
+
+  p,
+  li {
+    line-height: 1.6;
+    margin-bottom: 0.2rem;
+    font-size: clamp(0.8rem, 0.7vw + 0.55rem, 1.45rem);
+    font-family: var(--font-texts);
+  }
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .project {
+    margin-bottom: 1rem;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-method i {
+    margin-right: 5px;
+    text-align: center;
+    color: #af9661;
+  }
+
+  .icons-size {
+    font-size: clamp(1.4rem, 1vw + 0.5rem, 2rem);
+  }
+
+  .cv-link {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    min-width: 60px;
+    background-color: var(--color-gold);
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    font-family: var(--font-texts);
+    font-size: clamp(1rem, 0.7vw + 0.5rem, 1.15rem);
+  }
+
+  .links {
+    color: white;
+  }
+
+  .links-size {
+    font-size: clamp(0.9rem, 0.6vw + 0.55rem, 1.35rem);
+  }
+
+  .link-long {
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .education-item {
+    margin-bottom: 0;
+  }
+
+  /* Ajuste extra para laptops (opcional) */
+  /* Ajuste más equilibrado para laptops (entre 1100 y 1600px) */
+@media (max-width: 1600px) and (min-width: 1100px) {
+  html {
+    font-size: clamp(13.5px, 0.58vw + 7px, 17px);
+  }
+
+  /* Párrafos ligeramente más grandes solo en sección "Sobre mí" */
+  #about p {
+    font-size: clamp(0.85rem, 0.65vw + 0.5rem, 1.25rem);
+  }
+}
+
+/* 🔹 Ajuste de tipografía para móviles (versión final, un poco más grande) */
+@media (max-width: 768px) {
+  html {
+    font-size: clamp(16px, 1.2vw + 9px, 20px);
+  }
+
+  p,
+  li {
+    font-size: clamp(1.05rem, 1.2vw + 0.7rem, 1.55rem);
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 4vw + 1rem, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 2.5vw + 0.8rem, 2.4rem);
+  }
+
+  h3 {
+    font-size: clamp(1.3rem, 1.9vw + 0.6rem, 2rem);
+  }
+}
+
 </style>
 
-    <!-- Iconos (opcional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
 <body>
-    <div id="cv-container">
-        <!-- Columna izquierda -->
-        <div class="left-column">
-            <header>
-                <img class="logo" src="assets/img/logo-d.png" alt="" />
-                <h1>Marcos Demian Garcia</h1>
-                <div class="fullstack-cv-cont">
-                    <h2>Full Stack Developer</h2>
-                    <a class="cv-link" href="assets/cv/Marcos Demian Garcia CV.pdf">CV <i class="fa-solid fa-file-arrow-down icons-size"></i></a>
-                </div>
-            </header>
-
-            <section id="about">
-                <h3>Sobre Mí</h3>
-                <p>
-                    Me formé como desarrollador web full stack ya que disfruto construir
-                    aplicaciones escalables y bien estructuradas, tanto en el frontend
-                    como en el backend. Trabajo con React.JS, Node.JS, Express, MySQL y MongoDB,
-                    apoyándome también en sólidos conocimientos de HTML5, CSS3 y
-                    JavaScript. Me involucro en todo el proceso: desde el diseño y
-                    consumo de APIs REST hasta la integración de bases de datos.
-                </p>
-            </section>
+  <div id="cv-container">
+    <!-- Columna izquierda -->
+    <div class="left-column">
+      <header>
+        <img class="logo" src="assets/img/logo-d.png" alt="" />
+        <h1>Marcos Demian Garcia</h1>
+        <div class="fullstack-cv-cont">
+          <h2>Full Stack Developer</h2>
+          <a class="cv-link" href="assets/cv/Marcos Demian Garcia CV.pdf">CV <i class="fa-solid fa-file-arrow-down icons-size"></i></a>
         </div>
+      </header>
 
-        <!-- Columna derecha -->
-        <div class="right-column">
-            <section id="skills">
-                <h3>Habilidades Técnicas</h3>
-                <div class="skills-list">
-                    <ul>
-                    <h3>Frontend</h3>
-                    <li>HTML5, CSS3, JavaScript (ES6+)</li>
-                    <li>React.JS</li>
-                    <li>Figma</li>
-                </ul>
-
-                <ul>
-                    <h3>Backend</h3>
-                    <li>Node.JS, Express.JS</li>
-                    <li>REST API´s</li>
-                    <li>Autenticación JWT, OAuth</li>
-                </ul>
-
-                <ul>
-                    <h3>Bases de Datos</h3>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                </ul>
-                </div>
-            </section>
-
-            <section id="projects">
-                <h3>Proyectos Destacados</h3>
-                <div class="project">
-                    <h3><a class="links" href="https://ireneprueba.netlify.app/" target="_blank">Sitio Web Corporativo - Fideos Nona Irene</a></h3>
-                    <p>
-                        Este sitio web presenta la esencia de Nona Irene, un espacio diseñado para dar a conocer su identidad, trayectoria y productos.
-                    </p>
-                    <p><strong>Tecnologías:</strong> CSS, React.js, Node.JS, JSON</p>
-                </div>
-            </section>
-
-            <section id="education">
-                <h3>Estudios</h3>
-                <ul>
-                    <li class="education-item"><h4>Backend:</h4> Centro de E-Learning UTN</li>
-                    <li class="education-item"><h4>FullStack:</h4> Bootcamp Henry</li>
-                    <li class="education-item"><h4>Educación Secundaria:</h4> Escuela N° 31 "Manuel Dorrego"</li>
-                </ul>
-            </section>
-
-            <section id="contact">
-                <div class="contact-method">
-                    <i class="fas fa-envelope icons-size"></i>
-                    <a href="mailto:demiangarcia254@gmail" target="_blank" class="links link-long links-size">demiangarcia254@gmail.com</a>
-                </div>
-                <div class="contact-method">
-                    <i class="fas fa-phone icons-size"></i>
-                    <a class="links links-size" href="https://wa.me/5491151804739" target="_blank">+5491151804739</a>
-                </div>
-                <div class="contact-method">
-                    <a class="links links-size" href="https://www.linkedin.com/in/marcos-demian-garcia/" target="_blank"><i class="fab fa-linkedin icons-size"></i></a>
-                </div>
-                <div class="contact-method">
-                    <a class="links links-size" href="https://github.com/MarcosDemian" target="_blank"><i class="fab fa-github icons-size"></i></a>
-                </div>
-            </section>
-        </div>
+      <section id="about">
+        <h3>Sobre Mí</h3>
+        <p>
+          Me formé como desarrollador web full stack ya que disfruto construir
+          aplicaciones escalables y bien estructuradas, tanto en el frontend
+          como en el backend. Trabajo con React.JS, Node.JS, Express, MySQL y MongoDB,
+          apoyándome también en sólidos conocimientos de HTML5, CSS3 y
+          JavaScript. Me involucro en todo el proceso: desde el diseño y
+          consumo de APIs REST hasta la integración de bases de datos.
+        </p>
+      </section>
     </div>
+
+    <!-- Columna derecha -->
+    <div class="right-column">
+      <section id="skills">
+        <h3>Habilidades Técnicas</h3>
+        <div class="skills-list">
+          <ul>
+            <h3>Frontend</h3>
+            <li>HTML5, CSS3, JavaScript (ES6+)</li>
+            <li>React.JS</li>
+            <li>Figma</li>
+          </ul>
+
+          <ul>
+            <h3>Backend</h3>
+            <li>Node.JS, Express.JS</li>
+            <li>REST API´s</li>
+            <li>Autenticación JWT, OAuth</li>
+          </ul>
+
+          <ul>
+            <h3>Bases de Datos</h3>
+            <li>MySQL</li>
+            <li>MongoDB</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3>Proyectos Destacados</h3>
+        <div class="project">
+          <h3><a class="links" href="https://ireneprueba.netlify.app/" target="_blank">Sitio Web Corporativo - Fideos Nona Irene</a></h3>
+          <p>
+            Este sitio web presenta la esencia de Nona Irene, un espacio diseñado para dar a conocer su identidad, trayectoria y productos.
+          </p>
+          <p><strong>Tecnologías:</strong> CSS, React.js, Node.JS, JSON</p>
+        </div>
+      </section>
+
+      <section id="education">
+        <h3>Estudios</h3>
+        <ul>
+          <li class="education-item"><h4>Backend:</h4> Centro de E-Learning UTN</li>
+          <li class="education-item"><h4>FullStack:</h4> Bootcamp Henry</li>
+          <li class="education-item"><h4>Educación Secundaria:</h4> Escuela N° 31 "Manuel Dorrego"</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <div class="contact-method">
+          <i class="fas fa-envelope icons-size"></i>
+          <a href="mailto:demiangarcia254@gmail" target="_blank" class="links link-long links-size">demiangarcia254@gmail.com</a>
+        </div>
+        <div class="contact-method">
+          <i class="fas fa-phone icons-size"></i>
+          <a class="links links-size" href="https://wa.me/5491151804739" target="_blank">+5491151804739</a>
+        </div>
+        <div class="contact-method">
+          <a class="links links-size" href="https://www.linkedin.com/in/marcos-demian-garcia/" target="_blank"><i class="fab fa-linkedin icons-size"></i></a>
+        </div>
+        <div class="contact-method">
+          <a class="links links-size" href="https://github.com/MarcosDemian" target="_blank"><i class="fab fa-github icons-size"></i></a>
+        </div>
+      </section>
+    </div>
+  </div>
 </body>
 
 </html>
